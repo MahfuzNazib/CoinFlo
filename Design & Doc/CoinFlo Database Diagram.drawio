@@ -1,0 +1,26 @@
+<mxfile host="app.diagrams.net" modified="2024-05-17T03:06:25.106Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="Cy8l_TnbD0IquVhOuYcv" version="24.4.3" type="device">
+  <diagram name="Page-1" id="GkmctTpxXZGzXi2X5jjz">
+    <mxGraphModel dx="819" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k5BKpccCYU5LgHNT2HT3-1" value="Users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="160" height="190" as="geometry">
+            <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k5BKpccCYU5LgHNT2HT3-2" value="ID [PK]&lt;br&gt;UserSecretKey&lt;br&gt;Email&lt;div&gt;Password&lt;/div&gt;&lt;div&gt;GmailTokenID&lt;/div&gt;&lt;div&gt;Status[Active,Inactive]&lt;/div&gt;&lt;div&gt;RegisteredAt&lt;/div&gt;&lt;div&gt;LastLoggedIn&lt;/div&gt;&lt;div&gt;IsLoggedInFirstTime&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="k5BKpccCYU5LgHNT2HT3-1">
+          <mxGeometry y="50" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="k5BKpccCYU5LgHNT2HT3-3" value="UserProfile" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="160" height="190" as="geometry">
+            <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k5BKpccCYU5LgHNT2HT3-4" value="ID [PK]&lt;br&gt;UserID [FK]&lt;br&gt;&lt;div&gt;FullName&lt;/div&gt;&lt;div&gt;CountryCode&lt;/div&gt;&lt;div&gt;ContactNo&lt;/div&gt;&lt;div&gt;ProfilePicture&lt;/div&gt;&lt;div&gt;Currency&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="k5BKpccCYU5LgHNT2HT3-3">
+          <mxGeometry y="50" width="160" height="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
