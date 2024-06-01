@@ -107,8 +107,9 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
 
 import BlockViewer from '@/components/BlockViewer.vue';
-
+import '@/assets/tailwind.css';
 import '@/assets/styles.scss';
+import '@/assets/custom.css';
 
 const app = createApp(App);
 

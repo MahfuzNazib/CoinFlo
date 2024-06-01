@@ -6,17 +6,37 @@ const router = createRouter({
     routes: [
         {
             path: '/',
+            redirect: '/auth/login'
+        },
+        {
+            path: '/app',
             component: AppLayout,
             children: [
                 {
-                    path: '/',
+                    path: '/dashboard',
                     name: 'dashboard',
                     component: () => import('@/views/Dashboard.vue')
+                },
+                // Category
+                {
+                    path: '/category/categorysummary',
+                    name: 'categorysummary',
+                    component: () => import('@/views/pages/category/CategorySummary.vue')
+                },
+                {
+                    path: '/auth/forgotpassword',
+                    name: 'forgotpassword',
+                    component: () => import('@/views/pages/auth/ForgotPassword.vue')
                 },
                 {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
                     component: () => import('@/views/uikit/FormLayout.vue')
+                },
+                {
+                    path: '/uikit/testpage',
+                    name: 'testpage',
+                    component: () => import('@/views/uikit/TestPage.vue')
                 },
                 {
                     path: '/uikit/input',
@@ -158,6 +178,11 @@ const router = createRouter({
             path: '/auth/login',
             name: 'login',
             component: () => import('@/views/pages/auth/Login.vue')
+        },
+        {
+            path: '/auth/signup',
+            name: 'signup',
+            component: () => import('@/views/pages/auth/SignUp.vue')
         },
         {
             path: '/auth/access',

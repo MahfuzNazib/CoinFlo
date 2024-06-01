@@ -6,15 +6,16 @@ import AppMenuItem from './AppMenuItem.vue';
 const model = ref([
     {
         label: 'Home',
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/dashboard' }]
     },
     {
         label: 'Configuration',
         items: [
             { label: 'Payment Type', icon: 'pi pi-fw pi-id-card', to: '/pages/empty' },
             { label: 'Transaction Type', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-            { label: 'Category', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-            { label: 'Digital Account', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' }
+            { label: 'Category', icon: 'pi pi-fw pi-id-card', to: '/category/categorysummary' },
+            { label: 'Digital Account', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
+            { label: 'Test Page', icon: 'pi pi-fw pi-id-card', to: '/auth/forgotpassword' }
         ]
     },
     {

@@ -1,0 +1,14 @@
+{
+    "data": [
+        {"id": "1000","code": "f230fh0g3","name": "House Rent","type": "CashOut","status": true},
+        {"id": "1001","code": "f230fh0g1","name": "Market Bill","type": "CashOut","status": true},
+        {"id": "1002","code": "f230fh0g2","name": "Salary","type": "CashIn","status": true},
+        {"id": "1003","code": "f230fh0g4","name": "Bike Trip","type": "CashIn","status": true},
+        {"id": "1004","code": "f230fh0g5","name": "Internet Bill","type": "CashOut","status": true},
+        {"id": "1005","code": "f230fh0g6","name": "QoDesign Income","type": "CashIn","status": true},
+        {"id": "1006","code": "f230fh0g7","name": "Parking","type": "CashOut","status": true},
+        {"id": "1007","code": "f230fh0g8","name": "House Rent","type": "CashIn","status": true},
+        {"id": "1008","code": "f230fh0g9","name": "House Rent","type": "CashIn","status": true}
+    ]
+}
+    
