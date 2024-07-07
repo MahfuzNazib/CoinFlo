@@ -2,15 +2,46 @@
 import { useLayout } from '@/layout/composables/layout';
 import { ref, computed } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
+import { useToast } from 'primevue/usetoast';
 
 const { layoutConfig } = useLayout();
 const email = ref('');
 const password = ref('');
 const checked = ref(false);
+const toast = useToast();
 
 const logoUrl = computed(() => {
     return `/layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
 });
+
+function doLogin() {
+    if (!email.value) {
+        toast.add({
+            severity: 'error',
+            summary: 'Error Message',
+            detail: 'Enter your email',
+            life: 3000
+        });
+        return;
+    }
+
+    if (!password.value) {
+        toast.add({
+            severity: 'error',
+            summary: 'Error Message',
+            detail: 'Enter your password',
+            life: 3000
+        });
+        return;
+    }
+
+    toast.add({
+        severity: 'info',
+        summary: 'Connection...',
+        detail: 'Please wait some time',
+        life: 3000
+    });
+}
 </script>
 
 <template>
@@ -39,7 +70,7 @@ const logoUrl = computed(() => {
                             </div>
                             <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a>
                         </div>
-                        <Button label="Sign In" class="w-full p-3 text-xl"></Button>
+                        <Button label="Sign In" class="w-full p-3 text-xl" @click="doLogin"></Button>
                         <div class="text-center mt-2">
                             <span class="text-600 font-medium mb-3">Or</span>
                             <br />

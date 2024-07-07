@@ -1,0 +1,117 @@
+# .gitignore for ASP.NET Core
+
+# .NET related
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Mm][Dd]64/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Auto-generated UI by Visual Studio
+Generated_Code/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotNetUserSettings
+*.DotSettings.user
+
+# ASP.NET Core
+appsettings.*.json
+secrets.json
+
+# DotNet Build Results
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Docker files
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
+
+# Npm dependencies
+node_modules/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# Local History for Visual Studio
+.vs/
+.vscode/
+
+# Webpack
+.webpack/
+
+# npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment settings
+.env
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

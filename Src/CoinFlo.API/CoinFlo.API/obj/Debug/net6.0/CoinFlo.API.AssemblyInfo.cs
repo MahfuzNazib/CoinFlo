@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoinFlo.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ede699a87eef4f1e900e2f9c709e75a06eb2f91")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoinFlo.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoinFlo.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
