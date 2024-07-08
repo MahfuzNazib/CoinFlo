@@ -3,9 +3,8 @@ import { useLayout } from '@/layout/composables/layout';
 import { ref, computed, getCurrentInstance } from 'vue';
 import axios from 'axios';
 import AppConfig from '@/layout/AppConfig.vue';
-import { useToast } from 'primevue/usetoast';
+import Swal from 'sweetalert2';
 
-const toast = useToast();
 const { layoutConfig } = useLayout();
 const { proxy } = getCurrentInstance();
 const email = ref('');
@@ -26,28 +25,31 @@ function doSignUp() {
             LastName: userData.lastName,
             Email: email.value,
             Password: password.value,
-            UserStatus: 1
+            UserStatus: 0
         };
 
         axios
             .post(proxy.$BASE_API_URL + 'Auth/UserRegistration', userSignUpData)
             .then(function (response) {
                 console.log('Successful Response from Server Side : ' + response);
-                alert('Signup Successfully Done. Redirecting to Login Page');
+                swalNotificationAlert('Success', 'Your Account is Created', 'success', 'OK');
             })
             .catch(function (error) {
-                console.log('Error Message From Axios Post : ' + error);
-                alert('Error : ', error);
+                if (error.response) {
+                    console.log('Error Message From Axios Post: ', error.response.data);
+                    swalNotificationAlert('Error', error.response.data.message, 'error', 'OK');
+                } else {
+                    console.log('Error Message From Axios Post: ', error.message);
+                    swalNotificationAlert('Error', 'Internal Server Error. Try Again Later!', 'error', 'OK');
+                }
             });
-    } else {
-        alert('Block for Form Validation');
     }
 }
 
 function inputStartWithEmptySpace(inputValue) {
     let emptyStartInputException = inputValue.startsWith(' ');
     if (emptyStartInputException) {
-        alert(inputValue + ' can not start with empty space. Remove empty space from beginning');
+        swalNotificationAlert('Warning', inputValue + ' can not start with empty space. Remove empty space from beginning', 'warning', 'OK');
         return false;
     }
     return true;
@@ -55,7 +57,7 @@ function inputStartWithEmptySpace(inputValue) {
 
 function formDataValidation() {
     if (!fullName.value || fullName.value === '' || fullName.value === null) {
-        toast.add({ severity: 'error', summary: 'Error Message', detail: 'Please Add Your Full Name', life: 3000 });
+        swalNotificationAlert('Warning', 'Please Add Your Full Name', 'warning', 'OK');
         return false;
     }
 
@@ -64,7 +66,7 @@ function formDataValidation() {
     }
 
     if (!email.value || email.value === '' || email.value === null) {
-        toast.add({ severity: 'error', summary: 'Error Message', detail: 'Please Add Your Email', life: 3000 });
+        swalNotificationAlert('Warning', 'Please Add Your Email', 'warning', 'OK');
         return false;
     }
 
@@ -73,7 +75,7 @@ function formDataValidation() {
     }
 
     if (!password.value || password.value === '' || password.value === null) {
-        toast.add({ severity: 'error', summary: 'Error Message', detail: 'Please Add Your Account Password', life: 3000 });
+        swalNotificationAlert('Warning', 'Please Add Your Password', 'warning', 'OK');
         return false;
     }
 
@@ -94,6 +96,15 @@ function userFirstAndLastName(userFullName) {
     }
 
     return { firstName, lastName };
+}
+
+function swalNotificationAlert(txtTitle, txtMessage, txtIcon, txtConfirmButtonText) {
+    Swal.fire({
+        title: txtTitle,
+        text: txtMessage,
+        icon: txtIcon,
+        confirmButtonText: txtConfirmButtonText
+    });
 }
 </script>
 

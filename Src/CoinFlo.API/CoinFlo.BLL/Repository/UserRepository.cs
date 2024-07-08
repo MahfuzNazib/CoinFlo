@@ -18,9 +18,6 @@ namespace CoinFlo.BLL.Repository
 
         public async Task UserSignUp(Users user)
         {
-            string machineIPAddress = GetLoggedInMachineIPAddress();
-            user.LastDeviceIPAddress = machineIPAddress;
-
             string checkEmailQuery = "SELECT COUNT(1) FROM Users WHERE Email = @Email";
             var emailExists = await _dapperDataAccess.ExecuteScalarAsync(checkEmailQuery, new { user.Email });
 
@@ -28,6 +25,12 @@ namespace CoinFlo.BLL.Repository
             {
                 throw new AuthCustomExceptions.EmailAlreadyInUseException();
             }
+
+            string machineIPAddress = GetLoggedInMachineIPAddress();
+            user.LastDeviceIPAddress = machineIPAddress;
+
+            user.OTPCode = GenerateOTPCode();
+            user.OTPExpiredTime = GenerateOTPExpiredTime();
 
             string spName = "SP_AUTH_USER_REGISTRATION";
             await _dapperDataAccess.InsertData(spName, new
@@ -46,7 +49,9 @@ namespace CoinFlo.BLL.Repository
                 user.RegisteredAt,
                 user.LastLoggedIn,
                 user.LastDeviceIPAddress,
-                user.IsLoggedInFirstTime
+                user.IsLoggedInFirstTime,
+                user.OTPCode,
+                user.OTPExpiredTime
             });
         }
 
@@ -57,6 +62,17 @@ namespace CoinFlo.BLL.Repository
             IPAddress ipAddress = ipHostEntry.AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
 
             return ipAddress?.ToString();
+        }
+
+        private string GenerateOTPCode()
+        {
+            var random = new Random();
+            return random.Next(100000, 999999).ToString("D6");
+        }
+
+        private DateTime GenerateOTPExpiredTime()
+        {
+            return DateTime.Now.AddMinutes(5);
         }
     }
 }

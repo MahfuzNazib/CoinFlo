@@ -23,18 +23,6 @@ namespace CoinFlo.API.Controllers.Auth
         {
             try
             {
-                //int length = 5;
-                //for (int i=0; i<100000; i++)
-                //{
-                //    user.UserSecretKey = Guid.NewGuid();
-                //    user.FirstName = GenerateRandomString(length);
-                //    user.LastName = GenerateRandomString(length);
-                //    user.Email = $"{user.FirstName}_{user.LastName}@gmail.com";
-                //    user.Password = GenerateRandomString(length);
-
-                //    await _usersRepository.UserSignUp(user);
-                //}
-
                 await _usersRepository.UserSignUp(user);
                 return Ok(user);
             }
@@ -46,25 +34,6 @@ namespace CoinFlo.API.Controllers.Auth
             {
                 return StatusCode(500, $"Internal Server Error. Error Message : {ex.Message}");
             }   
-        }
-
-        static string GenerateRandomString(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            char[] result = new char[length];
-            byte[] buffer = new byte[length];
-
-            using (var rng = new RNGCryptoServiceProvider())
-            {
-                rng.GetBytes(buffer);
-            }
-
-            for (int i = 0; i < length; i++)
-            {
-                result[i] = chars[buffer[i] % chars.Length];
-            }
-
-            return new string(result);
         }
     }
 }
