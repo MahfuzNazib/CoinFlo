@@ -4,12 +4,14 @@ import { ref, computed, getCurrentInstance } from 'vue';
 import axios from 'axios';
 import AppConfig from '@/layout/AppConfig.vue';
 import Swal from 'sweetalert2';
+import { useRouter } from 'vue-router';
 
 const { layoutConfig } = useLayout();
 const { proxy } = getCurrentInstance();
 const email = ref('');
 const password = ref('');
 const fullName = ref('');
+const router = useRouter();
 
 const logoUrl = computed(() => {
     return `/layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
@@ -33,14 +35,13 @@ function doSignUp() {
             .then(function (response) {
                 console.log('Successful Response from Server Side : ' + response);
                 swalNotificationAlert('Success', 'Your Account is Created', 'success', 'OK');
+                router.push({ path: '/auth/verify-otp' });
             })
             .catch(function (error) {
                 if (error.response) {
-                    console.log('Error Message From Axios Post: ', error.response.data);
                     swalNotificationAlert('Error', error.response.data.message, 'error', 'OK');
                 } else {
-                    console.log('Error Message From Axios Post: ', error.message);
-                    swalNotificationAlert('Error', 'Internal Server Error. Try Again Later!', 'error', 'OK');
+                    swalNotificationAlert('Error', 'Internal Server Error (' + error.message + ')', 'error', 'OK');
                 }
             });
     }

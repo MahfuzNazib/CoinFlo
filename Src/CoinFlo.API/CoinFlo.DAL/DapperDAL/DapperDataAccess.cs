@@ -38,6 +38,7 @@ namespace CoinFlo.DAL.DapperDAL
             return await connection.QueryFirstOrDefaultAsync<T>(query, parameters, commandType: CommandType.StoredProcedure);
         }
 
+
         public async Task ExecuteQuery<P>(string query, P parameters, string conString = "LocalConn")
         {
             using IDbConnection connection = new SqlConnection(_configuration.GetConnectionString(conString));

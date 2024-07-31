@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj": {}
+    "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj": {}
   },
   "projects": {
-    "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj": {
+    "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj",
+        "projectUniqueName": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj",
         "projectName": "CoinFlo.API",
-        "projectPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj",
+        "projectPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\CoinFlo.API.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\obj\\",
+        "outputPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj": {
-                "projectPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj"
+              "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj": {
+                "projectPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj"
               },
-              "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj": {
-                "projectPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj"
+              "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj": {
+                "projectPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj"
               }
             }
           }
@@ -53,6 +53,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -85,14 +89,14 @@
         }
       }
     },
-    "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj": {
+    "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj",
+        "projectUniqueName": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj",
         "projectName": "CoinFlo.BLL",
-        "projectPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj",
+        "projectPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\CoinFlo.BLL.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\obj\\",
+        "outputPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,8 +114,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj": {
-                "projectPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj"
+              "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj": {
+                "projectPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj"
               }
             }
           }
@@ -131,6 +135,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -156,14 +164,14 @@
         }
       }
     },
-    "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj": {
+    "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj",
+        "projectUniqueName": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj",
         "projectName": "CoinFlo.DAL",
-        "projectPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj",
+        "projectPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\CoinFlo.DAL.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Softwares\\ASP.NET\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\obj\\",
+        "outputPath": "E:\\Web Application\\ASP.NET Core\\CoinFlo\\Src\\CoinFlo.API\\CoinFlo.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",

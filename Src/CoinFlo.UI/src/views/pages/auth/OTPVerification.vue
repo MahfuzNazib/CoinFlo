@@ -12,10 +12,9 @@ const logoUrl = computed(() => {
 });
 
 function verifyOTPCode() {
-    if (otpCode.value === '1122') {
-        swalNotificationAlert('Success', 'OTP Verified Successfully', 'success', 'OK');
+    if (otpCode.value) {
     } else {
-        swalNotificationAlert('Error', 'Invalid OTP Code', 'error', 'OK');
+        swalNotificationAlert('Warning', 'Enter OTP Code', 'warning', 'OK');
     }
 }
 
@@ -37,13 +36,13 @@ function swalNotificationAlert(txtTitle, txtMessage, txtIcon, txtConfirmButtonTe
                 <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
                     <div class="text-center mb-5">
                         <img src="/demo/images/login/avatar.png" alt="Image" height="50" class="mb-3" />
-                        <div class="text-900 text-3xl font-medium mb-3">Verify Your OTP Code</div>
-                        <span class="text-600 font-medium">We send a OTP code in you mail. Check & verify it</span>
+                        <div class="text-900 text-3xl font-medium mb-3">OTP Verification</div>
+                        <span class="text-600 font-medium">We sent a OTP code in you email. Please check & verify it</span>
                     </div>
 
                     <div>
-                        <InputText id="otpCode" type="text" placeholder="OTP Code" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="otpCode" />
-                        <Button label="Verify" class="w-full p-3 text-xl" @click="verifyOTPCode"></Button>
+                        <InputText id="otpCode" v-model="otpCode" placeholder="Enter OTP Code" :toggleMask="true" class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }" style="padding: 1rem" />
+                        <Button label="Verify OTP" class="w-full p-3 text-xl" @click="verifyOTPCode"></Button>
                         <div class="text-center mt-2">
                             <span class="text-600 font-medium mb-3">Or</span>
                             <br />

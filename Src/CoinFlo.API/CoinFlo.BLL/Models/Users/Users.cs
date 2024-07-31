@@ -19,7 +19,7 @@ namespace CoinFlo.BLL.Models.Users
         public string Currency { get; set; } = "BDT";
         public string ProfilePicture { get; set; } = string.Empty;
         public string GmailTokenID { get; set; } = string.Empty;
-        public int UserStatus { get; set; } = 0; // 1 means Active, 0 means Inactive.
+        public int UserStatus { get; set; } = 0; // [ 1 == "Active" , 0 == "Inactive"]
         public DateTime RegisteredAt { get; set; } = DateTime.Now;
         public DateTime LastLoggedIn { get; set; } = DateTime.Now;
         public string LastDeviceIPAddress { get; set; } = string.Empty;
