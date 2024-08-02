@@ -1,45 +1,70 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
-import { ref, computed } from 'vue';
+import { ref, computed, getCurrentInstance } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
-import { useToast } from 'primevue/usetoast';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 const { layoutConfig } = useLayout();
 const email = ref('');
 const password = ref('');
 const checked = ref(false);
-const toast = useToast();
+const { proxy } = getCurrentInstance();
+const router = useRouter();
 
 const logoUrl = computed(() => {
     return `/layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
 });
 
 function doLogin() {
+    const isFormValid = loginFormValidation();
+    if (isFormValid == true) {
+        const loginRequest = {
+            email: email.value,
+            password: password.value
+        };
+
+        axios
+            .post(proxy.$BASE_API_URL + 'Auth/Login', loginRequest)
+            .then(function (response) {
+                if (response.data.status == false) {
+                    swalNotificationAlert('Error', response.data.message, 'error', 'OK');
+                } else {
+                    router.push({ path: '/dashboard' });
+                }
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    swalNotificationAlert('Error', error.response.data.message, 'error', 'OK');
+                } else {
+                    swalNotificationAlert('Error', 'Internal Server Error (' + error.message + ')', 'error', 'OK');
+                }
+            });
+        swalNotificationAlert('Authenticating', 'Please wait. System is authenticating', 'information', 'OK');
+    }
+}
+
+function loginFormValidation() {
     if (!email.value) {
-        toast.add({
-            severity: 'error',
-            summary: 'Error Message',
-            detail: 'Enter your email',
-            life: 3000
-        });
-        return;
+        swalNotificationAlert('Warning', 'Enter Your Email', 'warning', 'OK');
+        return false;
     }
 
     if (!password.value) {
-        toast.add({
-            severity: 'error',
-            summary: 'Error Message',
-            detail: 'Enter your password',
-            life: 3000
-        });
-        return;
+        swalNotificationAlert('Warning', 'Enter Your Password', 'warning', 'OK');
+        return false;
     }
 
-    toast.add({
-        severity: 'info',
-        summary: 'Connection...',
-        detail: 'Please wait some time',
-        life: 3000
+    return true;
+}
+
+function swalNotificationAlert(txtTitle, txtMessage, txtIcon, txtConfirmButtonText) {
+    Swal.fire({
+        title: txtTitle,
+        text: txtMessage,
+        icon: txtIcon,
+        confirmButtonText: txtConfirmButtonText
     });
 }
 </script>

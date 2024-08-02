@@ -29,7 +29,7 @@ namespace CoinFlo.API.Controllers.Auth
             try
             {
                 await _usersRepository.UserSignUp(user);
-                return Ok(user);
+                return ResponseHelper.GetActionResponse(true, "User Registration Success", user);
             }
             catch(AuthCustomExceptions.EmailAlreadyInUseException ex)
             {
@@ -43,41 +43,42 @@ namespace CoinFlo.API.Controllers.Auth
 
 
         [HttpPost("Login")]
-        public async Task<IActionResult> UserLogin(string email, string password)
+        public async Task<IActionResult> UserLogin([FromBody] LoginRequest loginRequest)
         {
             try
             {
-                LoginResponse loginResponse = await _usersRepository.UserLogin(email, password);
+                LoginResponse loginResponse = await _usersRepository.UserLogin(loginRequest.email, loginRequest.password);
 
                 if (loginResponse == null)
                 {
-                    return StatusCode(500, $"Invalid Credential");
+                    return ResponseHelper.GetActionResponse(false, "Invalid Credentials");
                 }
                 if (loginResponse.UserStatus == false)
                 {
-                    return StatusCode(500, $"Sorry. Your account is disabled. For more information please contact admin");
+                    return ResponseHelper.GetActionResponse(false, "Sorry. Your account is disabled. For more information please contact admin");
                 }
 
                 string jwtToken = _jwtGenerator.GetJwtToken(loginResponse);
                 Users user = await _usersRepository.GetCurrentLoggedinUserData(loginResponse.Id, loginResponse.UserSecretKey);
                 ResponseHelper.StoreLoggedinUserIdKey(Response, loginResponse);
 
-                return Ok(new { Token = jwtToken, User = user });
+                var userLoginData = new {Token = jwtToken, User = user};
+                return ResponseHelper.GetActionResponse(true, "Valid User", userLoginData);
             }
             catch(Exception ex)
             {
-                return StatusCode(500, $"Internal Server Error. Error Message : {ex.Message}");
+                return ResponseHelper.GetActionResponse(false, $"Internal Server Error. Error Message : {ex.Message}");
             }
         }
 
 
         [HttpPost("OTP-Verification")]
-        public async Task<IActionResult> OTPVerification(int otpCode, string userEmail)
+        public async Task<IActionResult> OTPVerification([FromBody] OTPVerificationRequest otpVerificationRequest)
         {
             try
             {
-                var otpVerificationResponse = await _usersRepository.OTPVerification(otpCode, userEmail);
-                return ResponseHelper.GetActionResponse(otpVerificationResponse.otpStatus, otpVerificationResponse.otpMessage, otpCode);
+                var otpVerificationResponse = await _usersRepository.OTPVerification(otpVerificationRequest.otpCode, otpVerificationRequest.userEmail);
+                return ResponseHelper.GetActionResponse(otpVerificationResponse.otpStatus, otpVerificationResponse.otpMessage, otpVerificationRequest.otpCode);
             }
             catch (Exception ex)
             {

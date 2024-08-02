@@ -1,18 +1,38 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
-import { ref, computed } from 'vue';
+import { ref, computed, getCurrentInstance } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 const { layoutConfig } = useLayout();
+const { proxy } = getCurrentInstance();
+const router = useRouter();
 const otpCode = ref('');
 
 const logoUrl = computed(() => {
     return `/layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
 });
 
+const userEmail = localStorage.getItem('userEmail') || '';
+
 function verifyOTPCode() {
     if (otpCode.value) {
+        const otpVerificationParam = {
+            otpCode: otpCode.value,
+            userEmail: userEmail
+        };
+
+        axios.post(proxy.$BASE_API_URL + 'Auth/OTP-Verification', otpVerificationParam).then(function (response) {
+            console.log(response);
+            if (response.data.status === true) {
+                swalNotificationAlert('Success', response.data.message, 'success', 'OK');
+                router.push({ path: '/' });
+            } else {
+                swalNotificationAlert('Faild', response.data.message, 'error', 'OK');
+            }
+        });
     } else {
         swalNotificationAlert('Warning', 'Enter OTP Code', 'warning', 'OK');
     }

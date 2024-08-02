@@ -33,8 +33,9 @@ function doSignUp() {
         axios
             .post(proxy.$BASE_API_URL + 'Auth/UserRegistration', userSignUpData)
             .then(function (response) {
-                console.log('Successful Response from Server Side : ' + response);
+                const registerdUserEmail = response.data.data.email;
                 swalNotificationAlert('Success', 'Your Account is Created', 'success', 'OK');
+                localStorage.setItem('userEmail', registerdUserEmail);
                 router.push({ path: '/auth/verify-otp' });
             })
             .catch(function (error) {
