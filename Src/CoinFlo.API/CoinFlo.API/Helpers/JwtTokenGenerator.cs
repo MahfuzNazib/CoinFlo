@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using CoinFlo.BLL.Models.Auth;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography;
 
 namespace CoinFlo.API.Helpers
 {
@@ -36,6 +37,11 @@ namespace CoinFlo.API.Helpers
                 );
             string jwtTokenValue = new JwtSecurityTokenHandler().WriteToken(token);
             return jwtTokenValue;
+        }
+
+        public string GenerateRefreshToken()
+        {
+            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         }
     }
 }

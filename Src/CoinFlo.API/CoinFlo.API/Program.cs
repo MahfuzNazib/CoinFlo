@@ -1,7 +1,9 @@
 using CoinFlo.API.Helpers;
+using CoinFlo.BLL.IRepository.IAuthRepository;
 using CoinFlo.BLL.IRepository.ICategoryRepository;
 using CoinFlo.BLL.IRepository.IPayTypeRepository;
 using CoinFlo.BLL.IRepository.IUsersRepository;
+using CoinFlo.BLL.Repository.AuthRepository;
 using CoinFlo.BLL.Repository.CategoryRepository;
 using CoinFlo.BLL.Repository.PayTypeRepository;
 using CoinFlo.BLL.Repository.UserRepository;
@@ -21,6 +23,7 @@ namespace CoinFlo.API
             // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddTransient<IDapperDataAccess, DapperDataAccess>();
+            builder.Services.AddTransient<IAuthRepository, AuthRepository>();
             builder.Services.AddTransient<IUsersRepository, UserRepository>();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<IPayTypeRepository, PayTypeRepository>();

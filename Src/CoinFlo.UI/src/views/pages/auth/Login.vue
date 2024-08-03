@@ -31,6 +31,7 @@ function doLogin() {
                 if (response.data.status == false) {
                     swalNotificationAlert('Error', response.data.message, 'error', 'OK');
                 } else {
+                    localStorage.setItem('authToken', response.data.data.token);
                     router.push({ path: '/dashboard' });
                 }
             })
@@ -41,7 +42,6 @@ function doLogin() {
                     swalNotificationAlert('Error', 'Internal Server Error (' + error.message + ')', 'error', 'OK');
                 }
             });
-        swalNotificationAlert('Authenticating', 'Please wait. System is authenticating', 'information', 'OK');
     }
 }
 

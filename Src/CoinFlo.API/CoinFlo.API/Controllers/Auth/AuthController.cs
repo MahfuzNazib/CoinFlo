@@ -1,5 +1,6 @@
 ﻿using CoinFlo.API.Helpers;
 using CoinFlo.BLL.Exceptions.Auth;
+using CoinFlo.BLL.IRepository.IAuthRepository;
 using CoinFlo.BLL.IRepository.IUsersRepository;
 using CoinFlo.BLL.Models.Auth;
 using CoinFlo.BLL.Models.Users;
@@ -14,12 +15,12 @@ namespace CoinFlo.API.Controllers.Auth
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IUsersRepository _usersRepository;
+        private readonly IAuthRepository _authRepository;
         private readonly JwtTokenGenerator _jwtGenerator;
 
-        public AuthController(IUsersRepository usersRepository, JwtTokenGenerator jwtGenerator)
+        public AuthController(IUsersRepository usersRepository, IAuthRepository authRepository, JwtTokenGenerator jwtGenerator)
         {
-            _usersRepository = usersRepository;
+            _authRepository = authRepository;
             _jwtGenerator = jwtGenerator;
         }
 
@@ -28,7 +29,7 @@ namespace CoinFlo.API.Controllers.Auth
         {
             try
             {
-                await _usersRepository.UserSignUp(user);
+                await _authRepository.UserSignUp(user);
                 return ResponseHelper.GetActionResponse(true, "User Registration Success", user);
             }
             catch(AuthCustomExceptions.EmailAlreadyInUseException ex)
@@ -47,7 +48,7 @@ namespace CoinFlo.API.Controllers.Auth
         {
             try
             {
-                LoginResponse loginResponse = await _usersRepository.UserLogin(loginRequest.email, loginRequest.password);
+                LoginResponse loginResponse = await _authRepository.UserLogin(loginRequest.email, loginRequest.password);
 
                 if (loginResponse == null)
                 {
@@ -59,7 +60,7 @@ namespace CoinFlo.API.Controllers.Auth
                 }
 
                 string jwtToken = _jwtGenerator.GetJwtToken(loginResponse);
-                Users user = await _usersRepository.GetCurrentLoggedinUserData(loginResponse.Id, loginResponse.UserSecretKey);
+                Users user = await _authRepository.GetCurrentLoggedinUserData(loginResponse.Id, loginResponse.UserSecretKey);
                 ResponseHelper.StoreLoggedinUserIdKey(Response, loginResponse);
 
                 var userLoginData = new {Token = jwtToken, User = user};
@@ -77,7 +78,7 @@ namespace CoinFlo.API.Controllers.Auth
         {
             try
             {
-                var otpVerificationResponse = await _usersRepository.OTPVerification(otpVerificationRequest.otpCode, otpVerificationRequest.userEmail);
+                var otpVerificationResponse = await _authRepository.OTPVerification(otpVerificationRequest.otpCode, otpVerificationRequest.userEmail);
                 return ResponseHelper.GetActionResponse(otpVerificationResponse.otpStatus, otpVerificationResponse.otpMessage, otpVerificationRequest.otpCode);
             }
             catch (Exception ex)

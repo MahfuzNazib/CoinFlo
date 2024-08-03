@@ -1,4 +1,5 @@
-﻿using CoinFlo.BLL.IRepository.IUsersRepository;
+﻿using CoinFlo.BLL.IRepository.IAuthRepository;
+using CoinFlo.BLL.IRepository.IUsersRepository;
 using CoinFlo.BLL.Models.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,15 +8,15 @@ namespace CoinFlo.API.Controllers.User
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly IUsersRepository _userRepository;
-        private readonly int userId = 2;
-        private readonly string userSecretKey = "0E033FB3-ABA9-4D04-898F-087DAD87F777";
+        private readonly IAuthRepository _authRepository;
 
-        public UserController(IUsersRepository userRepository)
+        public UserController(IUsersRepository userRepository, IAuthRepository authRepository)
         {
             _userRepository = userRepository;
+            _authRepository = authRepository;
         }
 
         [HttpGet("UserProfile")]
@@ -23,9 +24,7 @@ namespace CoinFlo.API.Controllers.User
         {
             try
             {
-                // Call a method who can send the logged in user Id & UserSecretKey;
-
-                Users user = await _userRepository.GetCurrentLoggedinUserData(userId, userSecretKey);
+                Users user = await _authRepository.GetCurrentLoggedinUserData(userId, userSecretKey);
                 if (user == null) 
                 { 
                     return NotFound();
