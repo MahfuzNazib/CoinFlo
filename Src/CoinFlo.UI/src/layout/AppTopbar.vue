@@ -2,12 +2,14 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
 import { useRouter } from 'vue-router';
+import SwalAlert from '@/components/SwalAlert.vue';
 
 const { layoutConfig, onMenuToggle } = useLayout();
 
 const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
 const router = useRouter();
+const swalAlertRef = ref(null);
 
 onMounted(() => {
     bindOutsideClickListener();
@@ -26,7 +28,17 @@ const onTopBarMenuButton = () => {
 };
 const onSettingsClick = () => {
     topbarMenuActive.value = false;
-    router.push('/documentation');
+    router.push('/settings');
+};
+
+const onClickLogout = () => {
+    swalAlertRef.value.swalConfirmationAlert('Confirmation', 'Are you sure to Logout?', 'Yes', 'No').then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('refreshToken');
+            router.push({ path: '/auth/login' });
+        }
+    });
 };
 const topbarMenuClasses = computed(() => {
     return {
@@ -88,6 +100,11 @@ const isOutsideClicked = (event) => {
                 <i class="pi pi-cog"></i>
                 <span>Settings</span>
             </button>
+            <button @click="onClickLogout()" class="p-link layout-topbar-button">
+                <i class="pi pi-angle-double-right"></i>
+                <span>Logout</span>
+            </button>
+            <SwalAlert ref="swalAlertRef" />
         </div>
     </div>
 </template>

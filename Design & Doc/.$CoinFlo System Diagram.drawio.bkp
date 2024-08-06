@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-05-17T05:22:20.226Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="Vra0_MNPQZBwcj8jafBZ" version="24.4.3" type="device" pages="2">
   <diagram name="System Design" id="imzqs6YHDmk8xjtNz94x">
     <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -197,7 +197,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="02m36_jOD-Jc_6LyLaT4" name="DataBase Design">
-    <mxGraphModel dx="1434" dy="1686" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="1465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -209,37 +209,37 @@
         <mxCell id="wqpzlxed5BmKk1YOpJej-2" value="ID [PK]&amp;nbsp;&lt;br&gt;UserSecretKey&lt;br&gt;Email&lt;div&gt;Password&lt;/div&gt;&lt;div&gt;FullName&lt;/div&gt;&lt;div&gt;ContactNo&lt;/div&gt;&lt;div&gt;CountryCode&lt;/div&gt;&lt;div&gt;Currency&lt;/div&gt;&lt;div&gt;ProfilePicture&lt;/div&gt;&lt;div&gt;GmailTokenID&lt;/div&gt;&lt;div&gt;Status[Active,Inactive]&lt;/div&gt;&lt;div&gt;RegisteredAt&lt;/div&gt;&lt;div&gt;LastLoggedIn&lt;/div&gt;&lt;div&gt;IsLoggedInFirstTime&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="wqpzlxed5BmKk1YOpJej-1" vertex="1">
           <mxGeometry y="50" width="160" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-1" value="Categories" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-1" value="Categories" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="270" y="-800" width="200" height="150" as="geometry">
             <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-2" value="ID[PK]&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;CategoryName&lt;/div&gt;&lt;div&gt;IsCategoryBudget [Boolean]&lt;/div&gt;&lt;div&gt;TransactionType [CashIn, CashOut]&lt;/div&gt;&lt;div&gt;Status [Active, Inactive]&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="6NMhEKK2kq8Ev3XFRCIL-1" vertex="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-2" value="ID[PK]&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;CategoryName&lt;/div&gt;&lt;div&gt;IsCategoryBudget [Boolean]&lt;/div&gt;&lt;div&gt;TransactionType [CashIn, CashOut]&lt;/div&gt;&lt;div&gt;Status [Active, Inactive]&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="6NMhEKK2kq8Ev3XFRCIL-1">
           <mxGeometry y="50" width="200" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.01;entryY=0.306;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="wqpzlxed5BmKk1YOpJej-1" target="6NMhEKK2kq8Ev3XFRCIL-2" edge="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.01;entryY=0.306;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wqpzlxed5BmKk1YOpJej-1" target="6NMhEKK2kq8Ev3XFRCIL-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-4" value="DigitalPayments" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-4" value="DigitalPayments" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="730" y="-800" width="200" height="190" as="geometry">
             <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-5" value="ID[PK]&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;TransactionTypeID [FK]&lt;/div&gt;&lt;div&gt;AccountNo&lt;/div&gt;&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;BranchName&lt;/span&gt;&lt;/div&gt;&lt;div&gt;RoutingNo&lt;/div&gt;&lt;div&gt;OpeningBalance&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="6NMhEKK2kq8Ev3XFRCIL-4" vertex="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-5" value="ID[PK]&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;TransactionTypeID [FK]&lt;/div&gt;&lt;div&gt;AccountNo&lt;/div&gt;&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;BranchName&lt;/span&gt;&lt;/div&gt;&lt;div&gt;RoutingNo&lt;/div&gt;&lt;div&gt;OpeningBalance&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="6NMhEKK2kq8Ev3XFRCIL-4">
           <mxGeometry y="50" width="200" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-7" value="Transactions" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-7" value="Transactions" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="270" y="-630" width="180" height="250" as="geometry">
             <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-8" value="ID [PK]&amp;nbsp;&lt;br&gt;TransactionCode&lt;div&gt;TransactionDate&lt;/div&gt;&lt;div&gt;TransactionTime&lt;br&gt;&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;CategoryID&lt;/div&gt;&lt;div&gt;CashIn&lt;/div&gt;&lt;div&gt;CashOut&lt;/div&gt;&lt;div&gt;Amount&lt;/div&gt;&lt;div&gt;Description&lt;/div&gt;&lt;div&gt;TransactionTypeID&lt;/div&gt;&lt;div&gt;BankId&lt;/div&gt;&lt;div&gt;Attachment&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="6NMhEKK2kq8Ev3XFRCIL-7" vertex="1">
+        <mxCell id="6NMhEKK2kq8Ev3XFRCIL-8" value="ID [PK]&amp;nbsp;&lt;br&gt;TransactionCode&lt;div&gt;TransactionDate&lt;/div&gt;&lt;div&gt;TransactionTime&lt;br&gt;&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;CategoryID&lt;/div&gt;&lt;div&gt;CashIn&lt;/div&gt;&lt;div&gt;CashOut&lt;/div&gt;&lt;div&gt;Amount&lt;/div&gt;&lt;div&gt;Description&lt;/div&gt;&lt;div&gt;TransactionTypeID&lt;/div&gt;&lt;div&gt;BankId&lt;/div&gt;&lt;div&gt;Attachment&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="6NMhEKK2kq8Ev3XFRCIL-7">
           <mxGeometry y="50" width="180" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.009;entryY=0.338;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="wqpzlxed5BmKk1YOpJej-2" target="6NMhEKK2kq8Ev3XFRCIL-8" edge="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.009;entryY=0.338;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wqpzlxed5BmKk1YOpJej-2" target="6NMhEKK2kq8Ev3XFRCIL-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.019;entryY=0.417;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="6NMhEKK2kq8Ev3XFRCIL-2" target="6NMhEKK2kq8Ev3XFRCIL-8" edge="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.019;entryY=0.417;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="6NMhEKK2kq8Ev3XFRCIL-2" target="6NMhEKK2kq8Ev3XFRCIL-8">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="250" y="-725" />
@@ -248,15 +248,15 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-3" value="TransactionTypes" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-3" value="TransactionTypes" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="490" y="-800" width="200" height="150" as="geometry">
             <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-4" value="ID[PK]&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;TypeName&lt;/div&gt;&lt;div&gt;DefaultType [1,0]&lt;/div&gt;&lt;div&gt;Status [Active, Inactive]&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="AI9XHfjCb4k-4xyUDLZ7-3" vertex="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-4" value="ID[PK]&lt;div&gt;UserID [FK]&lt;/div&gt;&lt;div&gt;TypeName&lt;/div&gt;&lt;div&gt;DefaultType [1,0]&lt;/div&gt;&lt;div&gt;Status [Active, Inactive]&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="AI9XHfjCb4k-4xyUDLZ7-3">
           <mxGeometry y="50" width="200" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="wqpzlxed5BmKk1YOpJej-2" target="AI9XHfjCb4k-4xyUDLZ7-4" edge="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="wqpzlxed5BmKk1YOpJej-2" target="AI9XHfjCb4k-4xyUDLZ7-4">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="200" y="-820" />
@@ -265,18 +265,18 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=-0.008;entryY=0.321;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="AI9XHfjCb4k-4xyUDLZ7-4" target="6NMhEKK2kq8Ev3XFRCIL-5" edge="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=-0.008;entryY=0.321;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AI9XHfjCb4k-4xyUDLZ7-4" target="6NMhEKK2kq8Ev3XFRCIL-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-7" value="AppSettings" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-7" value="AppSettings" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="40" y="-510" width="160" height="140" as="geometry">
             <mxRectangle x="120" y="180" width="80" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-8" value="ID&lt;div&gt;UserID [FK]&lt;br&gt;&lt;div&gt;Key&lt;/div&gt;&lt;div&gt;Value&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="AI9XHfjCb4k-4xyUDLZ7-7" vertex="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-8" value="ID&lt;div&gt;UserID [FK]&lt;br&gt;&lt;div&gt;Key&lt;/div&gt;&lt;div&gt;Value&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="AI9XHfjCb4k-4xyUDLZ7-7">
           <mxGeometry y="50" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.01;entryY=0.352;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="wqpzlxed5BmKk1YOpJej-1" target="AI9XHfjCb4k-4xyUDLZ7-8" edge="1">
+        <mxCell id="AI9XHfjCb4k-4xyUDLZ7-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.01;entryY=0.352;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wqpzlxed5BmKk1YOpJej-1" target="AI9XHfjCb4k-4xyUDLZ7-8">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="20" y="-732" />

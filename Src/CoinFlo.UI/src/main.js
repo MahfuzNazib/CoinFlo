@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import globalProperties from './globalProperties';
+import './axiosSetup';
 
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';

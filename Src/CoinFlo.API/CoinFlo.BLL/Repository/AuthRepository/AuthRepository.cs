@@ -22,6 +22,7 @@ namespace CoinFlo.BLL.Repository.AuthRepository
             _dapperDataAccess = dapperDataAccess;
         }
 
+        #region SIGNUP
         public async Task UserSignUp(Users user)
         {
             string checkEmailQuery = "SELECT COUNT(1) FROM Users WHERE Email = @Email";
@@ -81,7 +82,9 @@ namespace CoinFlo.BLL.Repository.AuthRepository
             return DateTime.Now.AddMinutes(5);
         }
 
+        #endregion
 
+        #region LOGIN
         public async Task<LoginResponse?> UserLogin(string email, string password)
         {
             string query = "SP_USER_LOGIN";
@@ -127,6 +130,7 @@ namespace CoinFlo.BLL.Repository.AuthRepository
             await _dapperDataAccess.ExecuteQuery(SP_NAME, new { Id, userSecretKey, lastLoggedIn, LastDeviceIPAddress });
         }
 
+        #endregion
 
         public async Task<(bool otpStatus, string otpMessage)> OTPVerification(int otpCode, string userEmail)
         {
@@ -159,7 +163,6 @@ namespace CoinFlo.BLL.Repository.AuthRepository
             await _dapperDataAccess.ExecuteQuery(query, new { Id });
         }
 
-
         public async Task<Users> GetCurrentLoggedinUserData(int id, string userSecretKey)
         {
             string SP_NAME = "SP_GET_USER_DATA";
@@ -171,5 +174,51 @@ namespace CoinFlo.BLL.Repository.AuthRepository
 
             return await _dapperDataAccess.GetSingleData<Users, dynamic>(SP_NAME, parameters);
         }
+
+
+        #region REFRESH TOKEN
+        public async Task SaveRefreshToken(int userId, string refreshToken)
+        {
+            string query = "SP_SAVE_REFRESH_TOKEN";
+            var refreshTokenParam = new
+            {
+                UserId = userId,
+                Token = refreshToken,
+                CreatedAt = DateTime.UtcNow,
+                ExpiresAt = DateTime.Now.AddDays(5),
+                IsRevoked = false
+            };
+
+            await _dapperDataAccess.ExecuteQuery(query, refreshTokenParam);
+        }
+
+
+        public async Task<RefreshTokenResponse> GetRefreshToken(int userId, string oldToken)
+        {
+            string query = "SP_GET_REFRESH_TOKEB_BY_USER_ID";
+
+            var paramter = new
+            {
+                UserId = userId,
+                Token = oldToken,
+            };
+
+            return await _dapperDataAccess.GetSingleData<RefreshTokenResponse, dynamic>(query, paramter);
+        }
+
+
+        public async Task UpdateRefreshToken(int userId, string newRefreshToken, string oldRefreshToken)
+        {
+            string query = "SP_UPDATE_REFRESH_TOKEN";
+            var parameter = new
+            {
+                UserId = userId,
+                OldRefreshToken = oldRefreshToken,
+                NewRefreshToken = newRefreshToken
+            };
+
+            await _dapperDataAccess.ExecuteQuery(query, parameter);
+        }
+        #endregion
     }
 }

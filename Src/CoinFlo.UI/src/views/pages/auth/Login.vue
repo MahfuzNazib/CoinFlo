@@ -32,6 +32,7 @@ function doLogin() {
                     swalNotificationAlert('Error', response.data.message, 'error', 'OK');
                 } else {
                     localStorage.setItem('authToken', response.data.data.token);
+                    localStorage.setItem('refreshToken', response.data.data.refreshToken);
                     router.push({ path: '/dashboard' });
                 }
             })

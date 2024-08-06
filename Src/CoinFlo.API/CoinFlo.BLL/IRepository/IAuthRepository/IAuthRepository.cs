@@ -20,5 +20,10 @@ namespace CoinFlo.BLL.IRepository.IAuthRepository
 
         Task<Users> GetCurrentLoggedinUserData(int id, string userSecretKey);
 
+        Task SaveRefreshToken(int userId, string refreshToken);
+
+        Task<RefreshTokenResponse> GetRefreshToken(int userId, string oldToken);
+
+        Task UpdateRefreshToken(int userId, string newRefreshToken, string oldRefreshToken);
     }
 }

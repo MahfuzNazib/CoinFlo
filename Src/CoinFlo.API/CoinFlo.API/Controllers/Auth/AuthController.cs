@@ -60,10 +60,18 @@ namespace CoinFlo.API.Controllers.Auth
                 }
 
                 string jwtToken = _jwtGenerator.GetJwtToken(loginResponse);
+                string refreshToken = _jwtGenerator.GenerateRefreshToken();
                 Users user = await _authRepository.GetCurrentLoggedinUserData(loginResponse.Id, loginResponse.UserSecretKey);
                 ResponseHelper.StoreLoggedinUserIdKey(Response, loginResponse);
+                await _authRepository.SaveRefreshToken(loginResponse.Id, refreshToken);
 
-                var userLoginData = new {Token = jwtToken, User = user};
+                var userLoginData = new 
+                {
+                    Token = jwtToken, 
+                    RefreshToken = refreshToken, 
+                    User = user
+                };
+
                 return ResponseHelper.GetActionResponse(true, "Valid User", userLoginData);
             }
             catch(Exception ex)
@@ -86,5 +94,36 @@ namespace CoinFlo.API.Controllers.Auth
                 return ResponseHelper.GetActionResponse(false, $"Internal Server Error. Message : {ex.Message}");
             }
         }
+
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenRequest tokenRequest)
+        {
+            var principal = _jwtGenerator.GetPrincipalFromExpiredToken(tokenRequest.Token);
+            if (principal == null)
+            {
+                return ResponseHelper.GetActionResponse(false, "Invalid token");
+            }
+
+            var userId = principal.Claims.FirstOrDefault(c => c.Type == "Id")?.Value;
+            var savedRefreshToken = await _authRepository.GetRefreshToken(int.Parse(userId), tokenRequest.Token);
+
+            if (savedRefreshToken == null)
+            {
+                return ResponseHelper.GetActionResponse(false, "Invalid refresh token");
+            }
+
+            var newJwtToken = _jwtGenerator.GetJwtToken(new LoginResponse
+            {
+                Id = int.Parse(userId),
+                UserSecretKey = principal.Claims.FirstOrDefault(c => c.Type == "UserSecretKey")?.Value
+            });
+
+            var newRefreshToken = _jwtGenerator.GenerateRefreshToken();
+            await _authRepository.UpdateRefreshToken(int.Parse(userId), tokenRequest.Token, newRefreshToken);
+
+            return ResponseHelper.GetActionResponse(true, "Token refreshed", new { Token = newJwtToken, RefreshToken = newRefreshToken });
+        }
+
+
     }
 }

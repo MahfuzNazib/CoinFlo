@@ -18,6 +18,13 @@ const routes = [
                 name: 'dashboard',
                 component: () => import('@/views/Dashboard.vue')
             },
+            // Profile Route Start
+            {
+                path: '/settings',
+                name: 'settings',
+                component: () => import('@/views/pages/settings/Settings.vue')
+            },
+            // Profile Route End
             {
                 path: '/category/categorysummary',
                 name: 'categorysummary',
